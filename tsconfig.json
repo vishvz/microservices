@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "lib": ["es5", "es6", "dom"],
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "outDir": "./dist",
+    "removeComments": true,
+    // "baseUrl": ".",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "api-gateway/**/*",
+    "auth/**/*",
+    "common/**/*",
+    "main/**/*",
+    "message/**/*"
+  ],
+  "exclude": ["node_modules"]
+}

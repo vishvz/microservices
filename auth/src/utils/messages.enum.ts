@@ -1,0 +1,15 @@
+export enum COMMON_MESSAGE {
+  Success = 'Success Message',
+  Error = 'Error',
+  Server_Error = 'Server Error!',
+  Warn = 'Fill out data',
+  Not_found = 'Data not found.',
+  Schema_Validation_Fail = 'Schema Validation failed',
+  Wrong_pass = "Password doesn't match.",
+  User_not_exist = 'User does not exist.',
+  Email_sent_success = 'Email sent successfully.',
+  Token_not_valid = 'Token is not valid.',
+  Unauthorized = 'Unauthorized.',
+  Mongoose_id_validation = 'Provide a valid object id.',
+  Message_getMsgForUniqueName = 'already exist.',
+}

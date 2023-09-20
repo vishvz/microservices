@@ -1,0 +1,31 @@
+{
+  "name": "microservices",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "auth": "nodemon auth",
+    "api-gateway": "nodemon api-gateway",
+    "common": "nodemon common",
+    "main": "nodemon main",
+    "message": "nodemon message",
+    "start": "concurrently \"npm run api-gateway\" \"npm run auth\" \"npm run common\" \"npm run main\" \"npm run message\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/vishvz/microservices.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vishvz/microservices/issues"
+  },
+  "homepage": "https://github.com/vishvz/microservices#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.1",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.2.2"
+  }
+}
