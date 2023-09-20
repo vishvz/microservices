@@ -10,6 +10,7 @@ IF "%type%" EQU "" (
     set command=nodemon
 )
 
+start cmd /k "cd api-gateway && %command% && exit"
 start cmd /k "cd auth && %command% && exit"
 start cmd /k "cd common && %command% && exit"
 start cmd /k "cd main && %command% && exit"

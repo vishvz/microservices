@@ -1,5 +1,12 @@
-import 'dotenv/config';
+import dotenv from 'dotenv';
 
+const cwd = process.cwd();
+const serviceName = 'common';
+
+const envPath = cwd.includes(serviceName)
+  ? `${cwd}/.env`
+  : cwd + `/${serviceName}/.env`;
+dotenv.config({ path: envPath });
 interface ICustomProcessEnv {
   MONGODB_URL: string;
   NODE_ENV: 'development' | 'production';

@@ -8,12 +8,23 @@ const userRoute = express.Router();
 
 /**
  * @openapi
- * /api:
+ * /api/common:
  *   get:
  *     description: Welcome to swagger-jsdoc!
+ *     security:
+ *       - BearerAuth: []
+ *     securitySchemes:
+ *       BearerAuth:
+ *         type: http
+ *         scheme: bearer
+ *         bearerFormat: JWT
  *     responses:
  *       200:
  *         description: Returns "Hello".
+ *       401:
+ *         description: Unauthorized.
+ *       500:
+ *         description: Server error.
  */
 
 userRoute.get('/', (req: CustomExpressRequest, res) => {

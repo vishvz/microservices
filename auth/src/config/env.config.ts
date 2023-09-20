@@ -1,5 +1,12 @@
-import 'dotenv/config';
+import dotenv from 'dotenv';
 
+const cwd = process.cwd();
+const serviceName = 'auth';
+
+const envPath = cwd.includes(serviceName)
+  ? `${cwd}/.env`
+  : cwd + `/${serviceName}/.env`;
+dotenv.config({ path: envPath });
 interface ICustomProcessEnv {
   MONGODB_URL: string;
   AUTH_URL: string;

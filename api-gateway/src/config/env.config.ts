@@ -1,5 +1,11 @@
-import 'dotenv/config';
+import dotenv from 'dotenv';
 
+const cwd = process.cwd();
+const serviceName = 'api-gateway';
+const envPath = cwd.includes(serviceName)
+  ? `${cwd}/.env`
+  : cwd + `/${serviceName}/.env`;
+dotenv.config({ path: envPath });
 interface ICustomProcessEnv {
   NODE_ENV: 'development' | 'production';
   PORT?: string;

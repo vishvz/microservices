@@ -1,11 +1,13 @@
-import connectDb from './config/database.config';
+import connectDb, { sequelize } from './config/database.config';
 import getEnv from './config/env.config';
 import app from './config/server.config';
 
 (async () => {
   try {
-    const port = getEnv('PORT') || 8000;
-    await connectDb();
+    const port = getEnv('PORT') || 8003;
+
+    // await sequelize.authenticate();
+    // await connectDb();
     app.listen(port, async () => {
       console.log(`Server running at port ${port}`);
     });

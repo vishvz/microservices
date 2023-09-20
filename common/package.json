@@ -2,7 +2,6 @@
   "name": "backend-structure",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "main": "src/index.ts",
   "scripts": {
     "start": "nodemon src/index.ts",

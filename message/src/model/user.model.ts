@@ -2,8 +2,6 @@ import { UserModel } from '../types/user.types';
 import { Schema, model, models } from 'mongoose';
 import { z } from 'zod';
 
-
-
 const UserSchema = new Schema(
   {
     name: {
@@ -15,11 +13,10 @@ const UserSchema = new Schema(
       unique: true,
       required: true,
     },
-   
+
     password: {
       type: String,
     },
- 
   },
   { timestamps: true },
 );
@@ -30,4 +27,4 @@ export const userSchema = z.object({
   password: z.string().nonempty(),
 });
 
-export default (models?.User as UserModel) || model('User', UserSchema);
+export default model('User', UserSchema);

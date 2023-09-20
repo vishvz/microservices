@@ -7,7 +7,6 @@ import getEnv from './env.config';
 const corsOpts: CorsOptions = {
   origin: getEnv('API_GATEWAY_URL'),
 };
-
 const app: Express = express();
 
 app.use(cors(corsOpts));

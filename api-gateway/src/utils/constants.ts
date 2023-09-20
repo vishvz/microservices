@@ -3,7 +3,6 @@ import { TPROXIES } from '../types/common.types';
 import { COMMON_ROUTE, SERVICES_ROUTE } from './route.enums';
 
 export const x = 'x';
-
 export const PROXIES: TPROXIES[] = [
   {
     url: SERVICES_ROUTE.auth,

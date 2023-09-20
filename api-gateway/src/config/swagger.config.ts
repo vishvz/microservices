@@ -14,12 +14,15 @@ const swaggerDefinition: SwaggerDefinition = {
   ],
 };
 
+const cwd = process.cwd();
+
 const swaggerOpts: Options = {
   swaggerDefinition,
   apis: [
-    './src/config/test.ts',
-    '../auth/src/route/*.ts',
-    '../common/src/route/*.ts',
+    `${cwd}/auth/src/route/*.ts`,
+    `${cwd}/common/src/route/*.ts`,
+    `${cwd}/main/src/route/*.ts`,
+    `${cwd}/message/src/route/*.ts`,
   ],
 };
 
