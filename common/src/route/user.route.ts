@@ -13,11 +13,6 @@ const userRoute = express.Router();
  *     description: Welcome to swagger-jsdoc!
  *     security:
  *       - BearerAuth: []
- *     securitySchemes:
- *       BearerAuth:
- *         type: http
- *         scheme: bearer
- *         bearerFormat: JWT
  *     responses:
  *       200:
  *         description: Returns "Hello".
