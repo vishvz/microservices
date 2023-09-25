@@ -22,6 +22,12 @@ interface ICustomProcessEnv {
   SMTP_EMAIL_PASSWORD: string;
   JWT_SECRET: string;
   JWT_EXPIRE: string;
+  JWT_SECRET_REFRESH: string;
+  JWT_EXPIRE_REFRESH: string;
+  POST_DATABASE: string;
+  POST_DATABASE_USER: string;
+  POST_DATABASE_PASSWORD: string;
+  POST_DATABASE_HOST: string;
 }
 
 /**

@@ -1,33 +1,96 @@
+import { DataTypes } from 'sequelize';
 import { UserModel } from '../types/user.types';
-import { Schema, model, models } from 'mongoose';
 import { z } from 'zod';
+import { sequelize } from '../config/database.config';
+import Country from './country.model';
+import { MODEL_NAMES, USER_TYPES } from '../utils/constants';
+import Account from './account.model';
 
-
-
-const UserSchema = new Schema(
+const User = sequelize.define<UserModel>(
+  MODEL_NAMES.User,
   {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    countryId: {
+      type: DataTypes.INTEGER,
+    },
+    accountId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    type: {
+      type: DataTypes.ENUM,
+      values: Object.values(USER_TYPES),
+      defaultValue: USER_TYPES.USER,
+    },
     name: {
-      type: String,
-      required: true,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     email: {
-      type: String,
-      unique: true,
-      required: true,
+      type: DataTypes.STRING,
+      allowNull: true,
     },
-   
     password: {
-      type: String,
+      type: DataTypes.STRING,
+      allowNull: true,
     },
- 
+    contactNo: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    dob: {
+      type: DataTypes.DATEONLY,
+      allowNull: true,
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    deletedAt: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+    createdBy: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    updatedBy: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    deletedBy: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    isActive: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+    },
+    isDeleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   },
   { timestamps: true },
 );
 
-export const userSchema = z.object({
+export const UserSchema = z.object({
   name: z.string().nonempty(),
-  email: z.string().email().nonempty(),
-  password: z.string().nonempty(),
+  countryId: z.number(),
+  email: z.string(),
+  contactNo: z.string().nonempty(),
+  dob: z.string(),
 });
 
-export default (models?.User as UserModel) || model('User', UserSchema);
+User.belongsTo(Country, { foreignKey: 'countryId', as: 'country' });
+User.belongsTo(Account, { foreignKey: 'accountId', as: 'account' });
+
+export default User;

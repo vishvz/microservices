@@ -5,7 +5,7 @@ import app from './config/server.config';
 (async () => {
   try {
     const port = getEnv('PORT') || 8002;
-    // await connectDb();
+    await connectDb();
     app.listen(port, async () => {
       console.log(`Server running at port ${port}`);
     });

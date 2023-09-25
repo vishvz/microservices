@@ -12,4 +12,5 @@ export enum COMMON_MESSAGE {
   Unauthorized = 'Unauthorized.',
   Mongoose_id_validation = 'Provide a valid object id.',
   Message_getMsgForUniqueName = 'already exist.',
+  OTP_INVALID = 'The otp you entered is incorrect.',
 }

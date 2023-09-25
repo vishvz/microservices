@@ -1,5 +1,7 @@
 import { connect, set } from 'mongoose';
 import getEnv from './env.config';
+import { Sequelize, Options } from 'sequelize';
+import { queryLogger } from '../helpers/logger';
 
 const connectDb = async () => {
   try {
@@ -11,5 +13,17 @@ const connectDb = async () => {
     console.log(error);
   }
 };
+
+const sequelizeOpts: Options = {
+  host: getEnv('POST_DATABASE_HOST'),
+  dialect: 'postgres',
+  logging: q => queryLogger.info(q),
+};
+export const sequelize = new Sequelize(
+  getEnv('POST_DATABASE'),
+  getEnv('POST_DATABASE_USER'),
+  getEnv('POST_DATABASE_PASSWORD'),
+  sequelizeOpts,
+);
 
 export default connectDb;

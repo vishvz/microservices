@@ -4,7 +4,6 @@ import appRoute from '../route';
 import { COMMON_ROUTE } from '../utils/route.enums';
 import { CorsOptions } from 'cors';
 import getEnv from './env.config';
-import authMw from '../middleware/auth.middleware';
 
 const corsOpts: CorsOptions = {
   origin: getEnv('API_GATEWAY_URL'),

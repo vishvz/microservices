@@ -8,7 +8,7 @@ const connectDb = async () => {
     set('strictQuery', true);
     await connect(MONGO_URL);
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 };
 
