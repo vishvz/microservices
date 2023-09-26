@@ -17,6 +17,8 @@ interface ICustomProcessEnv {
   MONGODB_URL: string;
   JWT_SECRET: string;
   JWT_EXPIRE: string;
+  JWT_EXPIRE_REFRESH: string;
+  JWT_SECRET_REFRESH: string;
 }
 
 /**

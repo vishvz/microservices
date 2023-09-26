@@ -35,9 +35,13 @@ const swaggerOpts: Options = {
   apis: [
     `${cwd}/api-gateway/src/utils/swagger.ts`,
     `${cwd}/auth/src/route/*.ts`,
+    `${cwd}/auth/src/route/**/*.ts`,
+    `${cwd}/common/src/route/**/*.ts`,
     `${cwd}/common/src/route/*.ts`,
     `${cwd}/main/src/route/*.ts`,
+    `${cwd}/main/src/route/**/*.ts`,
     `${cwd}/message/src/route/*.ts`,
+    `${cwd}/message/src/route/**/*.ts`,
   ],
 };
 

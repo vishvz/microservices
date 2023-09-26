@@ -2,8 +2,10 @@ import getEnv from '../config/env.config';
 import { TPROXIES } from '../types/common.types';
 import { COMMON_ROUTE, SERVICES_ROUTE } from './route.enums';
 
-export const x = 'x';
-
+export enum USER_TYPES {
+  USER = 'USER',
+  ADMIN = 'ADMIN',
+}
 
 export const PROXIES: TPROXIES[] = [
   {
@@ -17,7 +19,6 @@ export const PROXIES: TPROXIES[] = [
     proxy: {
       target: getEnv('AUTH_URL'),
       changeOrigin: true,
-
       pathRewrite: {
         [`^${COMMON_ROUTE.api}${SERVICES_ROUTE.auth}`]: COMMON_ROUTE.api,
       },
@@ -25,7 +26,7 @@ export const PROXIES: TPROXIES[] = [
   },
   {
     url: SERVICES_ROUTE.common,
-    auth: true,
+    auth: false,
     creditCheck: true,
     proxy: {
       target: getEnv('COMMON_URL'),

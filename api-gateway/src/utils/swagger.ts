@@ -1,5 +1,10 @@
 /**
  * @swagger
+ * tags:
+ *   - name: Common
+ *     description: Common service apis
+ *   - name: Common/Dashboard
+ *     description: Dashboard
  * components:
  *   securitySchemes:
  *     BearerAuth:

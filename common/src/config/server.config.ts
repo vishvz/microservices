@@ -12,7 +12,7 @@ const corsOpts: CorsOptions = {
 const app: Express = express();
 
 app.use(cors(corsOpts));
-// app.use(express.json());
+app.use(express.json());
 
 app.use(COMMON_ROUTE.api, appRoute);
 

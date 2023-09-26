@@ -7,6 +7,7 @@ const connectDb = async () => {
 
     set('strictQuery', true);
     await connect(MONGO_URL);
+    console.log('Database connected!');
   } catch (error) {
     console.log(error.message);
   }

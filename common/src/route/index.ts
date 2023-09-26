@@ -1,14 +1,14 @@
 /**
- * @description Gather all routes (including common and all modules) in this router. 
+ * @description Gather all routes (including common and all modules) in this router.
  */
 
 import express from 'express';
-import moduleRoute from './module';
+import dashboardRoute from './dashboard';
 import commonRoute from './common.route';
 
 const appRoute = express.Router();
 
-appRoute.use(moduleRoute);
+appRoute.use(dashboardRoute);
 appRoute.use(commonRoute);
 
 export default appRoute;
